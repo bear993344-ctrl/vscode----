@@ -31,13 +31,15 @@ Write-Host "檢查是否需設定 upstream..." -ForegroundColor Cyan
 $upstream = git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>$null
 if (-not $upstream) {
     Write-Host "尚未設定上游分支，將建立 upstream origin/HEAD..." -ForegroundColor Cyan
-    if (-not (git push -u origin HEAD)) {
+    git push -u origin HEAD
+    if ($LASTEXITCODE -ne 0) {
         Write-Error 'git push 失敗，請檢查遠端設定與網路。'
         exit 1
     }
 } else {
     Write-Host "進行 git push..." -ForegroundColor Cyan
-    if (-not (git push)) {
+    git push
+    if ($LASTEXITCODE -ne 0) {
         Write-Error 'git push 失敗，請檢查遠端設定與網路。'
         exit 1
     }
