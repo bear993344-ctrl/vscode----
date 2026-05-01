@@ -11,8 +11,8 @@ class BreakfastOrderSystem:
 
         self.menu_items = [
             {"name": "蛋餅", "price": 35},
-            {"name": "火腿蛋吐司", "price": 45},
-            {"name": "鐵板麵", "price": 55},
+            {"name": "火腿蛋吐司", "price": 50},
+            {"name": "鐵板麵", "price": 60},
             {"name": "蘿蔔糕", "price": 40},
             {"name": "薯餅", "price": 30},
             {"name": "熱狗", "price": 25},
