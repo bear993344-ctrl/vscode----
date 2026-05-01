@@ -11,12 +11,7 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
 Set-Location -Path (Split-Path -Path $MyInvocation.MyCommand.Path -Parent)
 
 if (-not $Message) {
-    $Message = Read-Host -Prompt '請輸入 commit 訊息'
-}
-
-if (-not $Message) {
-    Write-Error '未提供 commit 訊息，已取消。'
-    exit 1
+    $Message = "Auto commit - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 }
 
 Write-Host "進行 git add -A..." -ForegroundColor Cyan
